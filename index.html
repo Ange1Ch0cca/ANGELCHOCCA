@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngelChocca | Producción, Transmisiones y Tecnología</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-red': '#3a0000',
+                        'mid-red': '#660000',
+                        'accent-red': '#e60000',
+                        'bright-red': '#ff1a1a',
+                        'dark-grey': '#121212',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-dark-grey text-white font-sans overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-dark-grey/90 backdrop-blur-md border-b border-mid-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#inicio" class="text-2xl font-black text-white tracking-wider">
+                        Angel<span class="text-accent-red">Chocca</span>
+                    </a>
+                </div>
+                <!-- Menú Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#inicio" class="hover:text-accent-red transition-colors px-3 py-2 rounded-md font-semibold">Inicio</a>
+                        <a href="#produccion" class="hover:text-accent-red transition-colors px-3 py-2 rounded-md font-semibold">Producción TV</a>
+                        <a href="#camara" class="hover:text-accent-red transition-colors px-3 py-2 rounded-md font-semibold">Cámara & Foto</a>
+                        <a href="#desarrollo" class="hover:text-accent-red transition-colors px-3 py-2 rounded-md font-semibold">Desarrollo Web</a>
+                        <a href="#evidencia" class="hover:text-accent-red transition-colors px-3 py-2 rounded-md font-semibold">Mi Trabajo</a>
+                        <a href="#contacto" class="bg-accent-red hover:bg-bright-red text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg shadow-accent-red/50">Contacto</a>
+                    </div>
+                </div>
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-mid-red">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="block hover:bg-accent-red px-3 py-2 rounded-md font-medium">Inicio</a>
+                <a href="#produccion" class="block hover:bg-accent-red px-3 py-2 rounded-md font-medium">Producción TV</a>
+                <a href="#camara" class="block hover:bg-accent-red px-3 py-2 rounded-md font-medium">Cámara & Foto</a>
+                <a href="#desarrollo" class="block hover:bg-accent-red px-3 py-2 rounded-md font-medium">Desarrollo Web</a>
+                <a href="#evidencia" class="block hover:bg-accent-red px-3 py-2 rounded-md font-medium">Mi Trabajo</a>
+                <a href="#contacto" class="block hover:bg-accent-red px-3 py-2 rounded-md font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero (Inicio) -->
+    <header id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-dark-red via-mid-red to-dark-grey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center lg:text-left lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2 fade-in">
+                    <span class="text-accent-red font-bold tracking-widest uppercase text-sm mb-2 block">Hola, soy AngelChocca</span>
+                    <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
+                        Domino cada área, pero <span class="text-accent-red">ganamos como equipo</span>.
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl">
+                        Soy un profesional integral de medios. Manejo switcher, soy camarógrafo deportivo y generalista, fotógrafo y programador web. Entiendo que una gran producción es el resultado de un equipo coordinado, donde cada uno ocupa su puesto según su experiencia para que todo salga perfecto.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#evidencia" class="bg-accent-red hover:bg-bright-red text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-accent-red/30 flex items-center gap-2">
+                            <i class="fas fa-camera"></i> Ver mi trabajo
+                        </a>
+                        <a href="#contacto" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Contactarme
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Foto de perfil o trabajando -->
+                <div class="lg:w-1/2 mt-12 lg:mt-0 fade-in flex justify-center">
+                    <div class="relative w-full max-w-md aspect-[4/5] bg-black rounded-2xl overflow-hidden shadow-2xl shadow-accent-red/20 border border-mid-red">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AngelChocca trabajando en equipo" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
+                            <p class="text-sm font-bold text-accent-red uppercase tracking-wider">En el set</p>
+                            <p class="text-white font-semibold">Coordinación y Operación Técnica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección 1: Producción y Transmisiones -->
+    <section id="produccion" class="py-24 bg-dark-grey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Producción de TV y Transmisiones</h2>
+                <p class="text-gray-400 max-w-3xl mx-auto">
+                    Mi fuerte es la realización en vivo. Aunque soy capaz de cubrir múltiples roles técnicos, en producciones multicámara me integro como un eslabón más de una cadena de profesionales altamente capacitados. Entiendo la importancia de respetar el puesto de cada uno para que la transmisión sea impecable.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card Switcher -->
+                <div class="bg-mid-red/20 rounded-2xl p-8 border border-mid-red hover:border-accent-red transition-all duration-300 fade-in flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-16 h-16 bg-accent-red rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent-red/50">
+                        <i class="fas fa-sliders-h text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Director de TV y Switcher</h3>
+                        <p class="text-gray-400">Como Director de TV o Switcher, mi rol es orquestar el flujo de cámaras y coordinar al equipo en tiempo real. Trabajo codo a codo con camarógrafos, audio y realización para entregar una señal fluida y profesional.</p>
+                    </div>
+                </div>
+                <!-- Card Transmisiones -->
+                <div class="bg-mid-red/20 rounded-2xl p-8 border border-mid-red hover:border-accent-red transition-all duration-300 fade-in flex flex-col md:flex-row gap-6 items-center" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-accent-red rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent-red/50">
+                        <i class="fas fa-broadcast-tower text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Transmisiones (Circuito Cerrado y Exteriores)</h3>
+                        <p class="text-gray-400">Para transmisiones en exteriores o circuito cerrado, trabajo junto a un equipo técnico para el montaje de cámaras, cableado y distribución de señal, asegurando que cada departamento cumpla su función para el éxito del evento.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Banner de Filosofía de Trabajo -->
+            <div class="mt-12 bg-gradient-to-r from-mid-red to-dark-grey rounded-2xl p-8 border border-mid-red fade-in text-center">
+                <i class="fas fa-users text-3xl text-accent-red mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Versatilidad Individual, Éxito Colectivo</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto">Puedo desenvolverme en cualquier área de la producción, pero mi mayor virtud en un equipo es saber escuchar, adaptarme al rol asignado y sumar mi experiencia para que el resultado final brille.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Cámara y Fotografía -->
+    <section id="camara" class="py-24 bg-gradient-to-b from-dark-grey to-mid-red/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Cámara y Fotografía</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Ya sea en un partido, en un concierto o en un evento corporativo, mi prioridad es capturar el momento exacto con calidad técnica, integrándome al ritmo del equipo de producción.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Camarógrafo Deportivo -->
+                <div class="bg-dark-grey rounded-2xl p-8 border border-mid-red hover:border-accent-red transition-all duration-300 fade-in">
+                    <i class="fas fa-futbol text-4xl text-accent-red mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3">Camarógrafo Deportivo</h3>
+                    <p class="text-gray-400 text-sm">Seguimiento de acción rápida y cobertura de partidos en vivo. Trabajo coordinado con el director para seguir el guion técnico y capturar la jugada exacta.</p>
+                </div>
+                <!-- Camarógrafo Generalista -->
+                <div class="bg-dark-grey rounded-2xl p-8 border border-mid-red hover:border-accent-red transition-all duration-300 fade-in" style="transition-delay: 100ms;">
+                    <i class="fas fa-video text-4xl text-accent-red mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3">Camarógrafo Generalista</h3>
+                    <p class="text-gray-400 text-sm">Cobertura de eventos corporativos, conciertos y producciones de estudio. Capacidad de adaptación a las directrices del equipo y a cualquier entorno técnico.</p>
+                </div>
+                <!-- Fotógrafo -->
+                <div class="bg-dark-grey rounded-2xl p-8 border border-mid-red hover:border-accent-red transition-all duration-300 fade-in" style="transition-delay: 200ms;">
+                    <i class="fas fa-camera-retro text-4xl text-accent-red mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3">Fotógrafo de Eventos</h3>
+                    <p class="text-gray-400 text-sm">Captura de momentos clave y cobertura fotográfica integral. Trabajo en sincronía con el equipo para no perder ningún detalle importante del evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Desarrollo Web -->
+    <section id="desarrollo" class="py-24 bg-dark-grey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Desarrollo Web</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">La tecnología también es parte de mi ADN. Programo soluciones digitales para complementar mis servicios audiovisuales, ya sea de forma individual o integrando un equipo de desarrollo.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-mid-red/20 rounded-2xl p-8 md:p-12 border border-mid-red flex flex-col md:flex-row items-center gap-8 fade-in">
+                <div class="w-24 h-24 bg-black rounded-2xl flex items-center justify-center flex-shrink-0 border border-mid-red">
+                    <i class="fas fa-laptop-code text-5xl text-accent-red"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">Programador Web Full-Stack</h3>
+                    <p class="text-gray-400 mb-4">Desarrollo de sitios web modernos, landing pages y aplicaciones interactivas. Puedo crear la plataforma donde se alojarán tus transmisiones o trabajar en conjunto con otros desarrolladores para escalar tu proyecto.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-dark-grey text-xs font-bold px-3 py-1 rounded-full border border-mid-red">HTML/CSS</span>
+                        <span class="bg-dark-grey text-xs font-bold px-3 py-1 rounded-full border border-mid-red">JavaScript</span>
+                        <span class="bg-dark-grey text-xs font-bold px-3 py-1 rounded-full border border-mid-red">PHP</span>
+                        <span class="bg-dark-grey text-xs font-bold px-3 py-1 rounded-full border border-mid-red">WordPress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Galería de Evidencia (Mi Trabajo) -->
+    <section id="evidencia" class="py-24 bg-gradient-to-b from-dark-grey to-mid-red/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-accent-red font-bold tracking-widest uppercase text-sm mb-2 block">Evidencia en Acción</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Mi Trabajo en Imágenes</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Aquí puedes ver algunas fotos de los eventos en los que he estado y de mí trabajando en campo, tanto en solitario como en equipo.</p>
+            </div>
+
+            <!-- Cuadrícula de Fotos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-in">
+                <!-- Foto 1 -->
+                <div class="gallery-item relative aspect-video rounded-xl overflow-hidden border border-mid-red group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trabajando en evento" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Transmisión en Exteriores (Equipo)</p>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item relative aspect-video rounded-xl overflow-hidden border border-mid-red group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camarógrafo deportivo" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Cobertura Deportiva</p>
+                    </div>
+                </div>
+                <!-- Foto 3 -->
+                <div class="gallery-item relative aspect-video rounded-xl overflow-hidden border border-mid-red group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Switcher en vivo" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Operando Switcher</p>
+                    </div>
+                </div>
+                <!-- Foto 4 -->
+                <div class="gallery-item relative aspect-video rounded-xl overflow-hidden border border-mid-red group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fotografía de evento" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Fotografía de Eventos</p>
+                    </div>
+                </div>
+                <!-- Foto 5 -->
+                <div class="gallery-item relative aspect-video rounded-xl overflow-hidden border border-mid-red group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montaje de cámaras" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Montaje de Equipo Técnico</p>
+                    </div>
+                </div>
+                <!-- Foto 6 -->
+                <div class="gallery-item relative aspect-video rounded-xl overflow-hidden border border-mid-red group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1536240472407-5248695e7a03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dirección de TV" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Dirección de TV</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10 fade-in">
+                <p class="text-gray-400 text-sm"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="bg-dark-grey border-t border-mid-red pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-black text-white mb-4">Angel<span class="text-accent-red">Chocca</span></h3>
+                    <p class="text-gray-400 mb-6">Producción de TV, transmisiones en vivo, cámara, fotografía y desarrollo web. Soluciones integrales, ya sea liderando o integrando tu equipo.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#inicio" class="hover:text-accent-red transition-colors">Inicio</a></li>
+                        <li><a href="#produccion" class="hover:text-accent-red transition-colors">Producción TV</a></li>
+                        <li><a href="#camara" class="hover:text-accent-red transition-colors">Cámara & Foto</a></li>
+                        <li><a href="#desarrollo" class="hover:text-accent-red transition-colors">Desarrollo Web</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Contáctame</h4>
+                    <p class="text-gray-400 mb-4">¿Tienes un evento o proyecto en mente? Hablemos.</p>
+                    <a href="mailto:angelchoccaramos@gmail.com" class="flex items-center gap-3 text-white hover:text-accent-red transition-colors mb-3">
+                        <i class="fas fa-envelope text-accent-red"></i> angelchoccaramos@gmail.com
+                    </a>
+                    <a href="https://wa.me/+51906829934" target="_blank" class="flex items-center gap-3 text-white hover:text-accent-red transition-colors">
+                        <i class="fab fa-whatsapp text-accent-red text-xl"></i> +51 906 829 934
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-mid-red pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 AngelChocca. Todos los derechos reservados. Hecho con pasión por la producción y el código.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menú Móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const links = menu.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
